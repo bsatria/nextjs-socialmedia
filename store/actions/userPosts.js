@@ -22,8 +22,25 @@ const userPostsListFail = error => ({
   error: true
 });
 
+const detailComments = data => ({
+  type: actionTypes.GET_DETAIL_COMMENTS_LIST,
+  payload: {
+    results: data,
+    loading: false
+  }
+});
+
+const detailCommentsReq = () => ({
+  type: actionTypes.GET_DETAIL_COMMENTS_LIST_REQUEST
+});
+
+const detailCommentsFail = error => ({
+  type: actionTypes.GET_DETAIL_COMMENTS_LIST_FAILURE,
+  payload: error,
+  error: true
+});
+
 // component
-// eslint-disable-next-line import/prefer-default-export
 export const getUserPosts = query => dispatch => {
   dispatch(userPostsListReq());
   const url = `${PUBLIC_API}${query}`;
@@ -33,4 +50,15 @@ export const getUserPosts = query => dispatch => {
       return result;
     })
     .catch(error => dispatch(userPostsListFail(error)));
+};
+
+export const getDetailComments = id => dispatch => {
+  dispatch(detailCommentsReq());
+  const url = `${PUBLIC_API}/posts/${id}/comments`;
+  return fetch(url, "get")
+    .then(result => {
+      dispatch(detailComments(result));
+      return result;
+    })
+    .catch(error => dispatch(detailCommentsFail(error)));
 };

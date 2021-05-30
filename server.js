@@ -13,6 +13,14 @@ app.prepare().then(() => {
     app.render(req, res, "/", req.query);
   });
 
+  server.get("/posts", (req, res) => {
+    app.render(req, res, "/posts", req.query);
+  });
+
+  server.get("/comments", (req, res) => {
+    app.render(req, res, "/comments", req.query);
+  });
+
   server.get("/users/:slug/posts", (req, res) => {
     app.render(req, res, "/users/[slug]/posts", req.query);
   });

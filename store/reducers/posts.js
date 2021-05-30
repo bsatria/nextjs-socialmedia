@@ -17,3 +17,20 @@ export const userPosts = (state = [], action) => {
       return state;
   }
 };
+
+export const detailComments = (state = [], action) => {
+  switch (action.type) {
+    case actionTypes.GET_DETAIL_COMMENTS_LIST:
+      return { ...state, loading: false, ...action.payload };
+    case actionTypes.GET_DETAIL_COMMENTS_LIST_REQUEST:
+      return { ...state, loading: true };
+    case actionTypes.GET_DETAIL_COMMENTS_LIST_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        errorMessage: action.payload.message
+      };
+    default:
+      return state;
+  }
+};

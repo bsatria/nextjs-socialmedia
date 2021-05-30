@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Card, Image, Grid } from "semantic-ui-react";
+import { Card, Image, Grid, Button } from "semantic-ui-react";
 
-const UserCard = ({ val }) => (
+const PostCard = ({ val, getComments }) => (
   <Grid.Column style={{ marginBottom: 10 }}>
     <Card>
       <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
@@ -12,12 +12,18 @@ const UserCard = ({ val }) => (
         </Card.Header>
         <Card.Description>{val.body}</Card.Description>
       </Card.Content>
+      <Card.Content extra>
+        <Button color="blue" onClick={() => getComments(val.id)}>
+          See Comments
+        </Button>
+      </Card.Content>
     </Card>
   </Grid.Column>
 );
 
-UserCard.propTypes = {
-  val: PropTypes.object.isRequired
+PostCard.propTypes = {
+  val: PropTypes.object.isRequired,
+  getComments: PropTypes.func.isRequired
 };
 
-export default UserCard;
+export default PostCard;
