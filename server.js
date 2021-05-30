@@ -13,6 +13,14 @@ app.prepare().then(() => {
     app.render(req, res, "/", req.query);
   });
 
+  server.get("/users/:slug/posts", (req, res) => {
+    app.render(req, res, "/users/[slug]/posts", req.query);
+  });
+
+  server.get("/users/:slug/albums", (req, res) => {
+    app.render(req, res, "/users/[slug]/albums", req.query);
+  });
+
   server.get("/starships/:id", (req, res) => {
     app.render(req, res, "/detail", { id: req.params.id });
   });

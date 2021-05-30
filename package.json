@@ -34,7 +34,8 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.87.2",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "underscore": "^1.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

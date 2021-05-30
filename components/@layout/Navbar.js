@@ -1,16 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import PropTypes from "prop-types";
-import {
-  Header,
-  Container,
-  Menu,
-  Segment,
-  Button,
-  Input
-} from "semantic-ui-react";
 
-const Navbar = ({ search }) => (
+import { Header, Container, Menu, Segment, Button } from "semantic-ui-react";
+
+const Navbar = ({ title }) => (
   <Segment
     textAlign="center"
     style={{
@@ -30,43 +23,21 @@ const Navbar = ({ search }) => (
             </a>
           </Link>
         </Menu.Item>
-        <Menu.Item active>
-          <Link href="/posts">
-            <a>
-              <Button color="blue">Posts</Button>
-            </a>
-          </Link>
-        </Menu.Item>
-        <Menu.Item active>
-          <Link href="/posts">
-            <a>
-              <Button color="red">Album</Button>
-            </a>
-          </Link>
-        </Menu.Item>
       </Container>
     </Menu>
     <Container text>
       <Header
         as="h1"
-        content="SOCIAL MEDIA APP"
+        content={title}
         inverted
         style={{
-          fontSize: "3em",
           fontWeight: "normal",
           marginBottom: 0,
           marginTop: 30
         }}
       />
-      {typeof search === "function" && (
-        <Input icon="search" placeholder="Search..." onChange={search} />
-      )}
     </Container>
   </Segment>
 );
-
-Navbar.propTypes = {
-  search: PropTypes.func
-};
 
 export default Navbar;

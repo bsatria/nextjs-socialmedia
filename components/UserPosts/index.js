@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { Grid } from "semantic-ui-react";
-import UserCard from "./UserCard";
+import PostCard from "./PostCard";
 
-function Home(props) {
-  const { router } = props;
-  const [data] = useState([]);
-  const user = useSelector(state => state.user);
-  const dataUser = router.query.search
-    ? user.results || []
-    : [...data, ...(user.results || [])];
+function Home() {
+  const userPosts = useSelector(state => state.userPosts);
+  const dataUserPosts = userPosts.results || [];
 
   return (
     <Grid
@@ -18,8 +14,8 @@ function Home(props) {
       id="wrapper"
     >
       <Grid.Row columns={5}>
-        {dataUser.length > 0
-          ? dataUser.map((val, id) => <UserCard val={val} key={id} />)
+        {dataUserPosts.length > 0
+          ? dataUserPosts.map((val, id) => <PostCard val={val} key={id} />)
           : "Data tidak ditemukan"}
       </Grid.Row>
     </Grid>
