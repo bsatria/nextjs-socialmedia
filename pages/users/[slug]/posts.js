@@ -5,7 +5,7 @@ import { isEmpty } from "underscore";
 
 import Layout from "../../../components/@layout";
 import UserPosts from "../../../components/UserPosts";
-import { getUserPosts } from "../../../store/actions/user-posts";
+import { getUserPosts } from "../../../store/actions/userPosts";
 
 function IndexUserPosts(props) {
   return (

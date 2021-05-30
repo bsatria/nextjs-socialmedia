@@ -40,7 +40,10 @@ const UserCard = ({ val }) => (
           <Button color="blue">See Posts</Button>
         </Link>
         <Link
-          href="/users/[slug]/albums"
+          href={{
+            pathname: "/users/[slug]/albums",
+            query: { userId: val.id }
+          }}
           as={`users/${val.id}/albums`}
           prefetch
         >

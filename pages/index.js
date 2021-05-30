@@ -5,10 +5,10 @@ import Layout from "../components/@layout";
 import Home from "../components/Home";
 import { getUsers } from "../store/actions/users";
 
-function IndexPage(props) {
+function IndexPage() {
   return (
     <Layout title="NextJS - React Redux Hooks - Social Media App by Bagas Satria">
-      <Home router={props.router} />
+      <Home />
     </Layout>
   );
 }
@@ -20,8 +20,7 @@ IndexPage.getInitialProps = async context => {
 };
 
 IndexPage.propTypes = {
-  user: PropTypes.array.isRequired,
-  router: PropTypes.object.isRequired
+  user: PropTypes.array.isRequired
 };
 
 export default withRouter(IndexPage);

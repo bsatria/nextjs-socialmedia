@@ -10,7 +10,7 @@ const UserCard = ({ val }) => (
         <Card.Header>
           <a>{val.title}</a>
         </Card.Header>
-        <Card.Description>{val.body}</Card.Description>
+        <Card.Description>{val.id}</Card.Description>
       </Card.Content>
     </Card>
   </Grid.Column>

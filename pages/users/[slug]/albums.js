@@ -1,27 +1,39 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "next/router";
-import Layout from "../../../components/@layout";
-import Home from "../../../components/Home";
-import { getUsers } from "../../../store/actions/users";
+import { isEmpty } from "underscore";
 
-function IndexUserPosts(props) {
+import Layout from "../../../components/@layout";
+import UserAlbums from "../../../components/UserAlbums";
+import { getUserAlbums } from "../../../store/actions/userAlbums";
+
+function IndexUserAlbums(props) {
   return (
-    <Layout title="NextJS - React Redux Hooks - Social Media App by Bagas Satria">
-      tes user albums
+    <Layout title={`NextJS React Redux Hooks | ${props.userName} - Albums`}>
+      <UserAlbums router={props.router} />
     </Layout>
   );
 }
 
-IndexUserPosts.getInitialProps = async context => {
-  const { reduxStore, asPath } = context;
-  const user = await reduxStore.dispatch(getUsers(asPath));
-  return {};
+IndexUserAlbums.getInitialProps = async context => {
+  const { reduxStore, asPath, query } = context;
+  const userAlbums = await reduxStore.dispatch(getUserAlbums(asPath));
+  const queryEmpty = isEmpty(query);
+  let userName = "";
+  if (!queryEmpty) {
+    const findUserName = reduxStore
+      .getState()
+      .user.results.find(val => val.id === Number(query.userId));
+    userName = findUserName.name;
+  }
+
+  return { userAlbums, userName };
 };
 
-IndexUserPosts.propTypes = {
-  //   user: PropTypes.object.isRequired,
-  //   router: PropTypes.object.isRequired
+IndexUserAlbums.propTypes = {
+  userAlbums: PropTypes.array.isRequired,
+  router: PropTypes.object.isRequired,
+  userName: PropTypes.string.isRequired
 };
 
-export default withRouter(IndexUserPosts);
+export default withRouter(IndexUserAlbums);

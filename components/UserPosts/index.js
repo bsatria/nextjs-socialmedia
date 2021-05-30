@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Grid } from "semantic-ui-react";
 import PostCard from "./PostCard";
 
-function Home() {
+function UserPosts() {
   const userPosts = useSelector(state => state.userPosts);
   const dataUserPosts = userPosts.results || [];
 
@@ -22,9 +22,9 @@ function Home() {
   );
 }
 
-Home.propTypes = {
+UserPosts.propTypes = {
   dispatch: PropTypes.func,
   router: PropTypes.object
 };
 
-export default Home;
+export default UserPosts;

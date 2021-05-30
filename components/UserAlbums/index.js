@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { Grid } from "semantic-ui-react";
-import UserCard from "./UserCard";
+import AlbumCard from "./AlbumCard";
 
-function Home() {
-  const user = useSelector(state => state.user);
-  const dataUser = user.results || [];
+function UserAlbums(props) {
+  const userAlbums = useSelector(state => state.userAlbums);
+  const dataUserAlbums = userAlbums.results || [];
 
   return (
     <Grid
@@ -14,17 +14,17 @@ function Home() {
       id="wrapper"
     >
       <Grid.Row columns={5}>
-        {dataUser.length > 0
-          ? dataUser.map((val, id) => <UserCard val={val} key={id} />)
+        {dataUserAlbums.length > 0
+          ? dataUserAlbums.map((val, id) => <AlbumCard val={val} key={id} />)
           : "Data tidak ditemukan"}
       </Grid.Row>
     </Grid>
   );
 }
 
-Home.propTypes = {
+UserAlbums.propTypes = {
   dispatch: PropTypes.func,
   router: PropTypes.object
 };
 
-export default Home;
+export default UserAlbums;

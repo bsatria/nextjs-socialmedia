@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-
 import { Header, Container, Menu, Segment, Button } from "semantic-ui-react";
+import PropTypes from "prop-types";
 
 const Navbar = ({ title }) => (
   <Segment
@@ -23,6 +23,20 @@ const Navbar = ({ title }) => (
             </a>
           </Link>
         </Menu.Item>
+        <Menu.Item active>
+          <Link href="/posts">
+            <a>
+              <Button color="blue">Posts</Button>
+            </a>
+          </Link>
+        </Menu.Item>
+        <Menu.Item active>
+          <Link href="/comment">
+            <a>
+              <Button color="red">Comment</Button>
+            </a>
+          </Link>
+        </Menu.Item>
       </Container>
     </Menu>
     <Container text>
@@ -39,5 +53,9 @@ const Navbar = ({ title }) => (
     </Container>
   </Segment>
 );
+
+Navbar.propTypes = {
+  title: PropTypes.string
+};
 
 export default Navbar;
