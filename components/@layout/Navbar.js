@@ -35,7 +35,7 @@ const Navbar = ({ title, isBack }) => {
             </Link>
           </Menu.Item>
           <Menu.Item active>
-            <Link href="/comment">
+            <Link href="/comments">
               <a>
                 <Button color="red">Comment</Button>
               </a>

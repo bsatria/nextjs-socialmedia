@@ -11,7 +11,8 @@ const TableComponent = props => {
           {column.map(val => (
             <Fragment key={val.id}>
               <Table.HeaderCell>{val.id}</Table.HeaderCell>
-              <Table.HeaderCell>{val.title}</Table.HeaderCell>
+              <Table.HeaderCell>{val.email}</Table.HeaderCell>
+              <Table.HeaderCell>{val.name}</Table.HeaderCell>
               <Table.HeaderCell>{val.body}</Table.HeaderCell>
               <Table.HeaderCell>{val.action}</Table.HeaderCell>
             </Fragment>
@@ -23,7 +24,8 @@ const TableComponent = props => {
         {data.map(val => (
           <Table.Row key={val.id}>
             <Table.Cell>{val.id}</Table.Cell>
-            <Table.Cell>{val.title}</Table.Cell>
+            <Table.Cell>{val.email}</Table.Cell>
+            <Table.Cell>{val.name}</Table.Cell>
             <Table.Cell>{val.body}</Table.Cell>
             <Table.Cell>
               <Button color="green" icon onClick={() => onEditRow(val)}>
