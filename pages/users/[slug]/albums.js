@@ -9,7 +9,10 @@ import { getUserAlbums } from "../../../store/actions/userAlbums";
 
 function IndexUserAlbums(props) {
   return (
-    <Layout title={`NextJS React Redux Hooks | ${props.userName} - Albums`}>
+    <Layout
+      title={`NextJS React Redux Hooks | ${props.userName} - Albums`}
+      isBack={true}
+    >
       <UserAlbums router={props.router} />
     </Layout>
   );

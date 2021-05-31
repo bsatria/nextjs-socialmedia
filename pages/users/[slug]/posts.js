@@ -9,7 +9,10 @@ import { getUserPosts } from "../../../store/actions/userPosts";
 
 function IndexUserPosts(props) {
   return (
-    <Layout title={`NextJS React Redux Hooks | ${props.userName} - Posts`}>
+    <Layout
+      title={`NextJS React Redux Hooks | ${props.userName} - Posts`}
+      isBack={true}
+    >
       <UserPosts router={props.router} />
     </Layout>
   );

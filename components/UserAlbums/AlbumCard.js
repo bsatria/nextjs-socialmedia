@@ -17,7 +17,7 @@ const UserCard = ({ val }) => (
         <Link
           href={{
             pathname: "/albums/[slug]/photos",
-            query: { userId: val.id }
+            query: { albumId: val.id }
           }}
           as={`/albums/${val.id}/photos`}
           prefetch

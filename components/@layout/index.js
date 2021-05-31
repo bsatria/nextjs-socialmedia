@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const HeadPage = ({ children, title }) => (
+const HeadPage = ({ children, title, isBack }) => (
   <Fragment>
     <Head>
       <title>{title}</title>
@@ -30,7 +30,7 @@ const HeadPage = ({ children, title }) => (
         href="https://unpkg.com/nprogress@0.2.0/nprogress.css"
       />
     </Head>
-    <Navbar title={title} />
+    <Navbar title={title} isBack={isBack} />
     {children}
     <Footer />
   </Fragment>
@@ -38,7 +38,8 @@ const HeadPage = ({ children, title }) => (
 
 HeadPage.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  isBack: PropTypes.bool
 };
 
 export default HeadPage;

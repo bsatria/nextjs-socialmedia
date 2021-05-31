@@ -9,7 +9,10 @@ import { getAlbumPhotos } from "../../../store/actions/albumPhotos";
 
 function IndexAlbumPhotos(props) {
   return (
-    <Layout title={`NextJS React Redux Hooks | ${props.userName} - Albums`}>
+    <Layout
+      title={`NextJS React Redux Hooks | List Photos of ${props.photoTitle}`}
+      isBack={true}
+    >
       <AlbumPhotos router={props.router} />
     </Layout>
   );
@@ -19,21 +22,21 @@ IndexAlbumPhotos.getInitialProps = async context => {
   const { reduxStore, asPath, query } = context;
   const userAlbums = await reduxStore.dispatch(getAlbumPhotos(asPath));
   const queryEmpty = isEmpty(query);
-  let userName = "";
+  let photoTitle = "";
   if (!queryEmpty) {
-    const findUserName = reduxStore
+    const findTitle = reduxStore
       .getState()
-      .user.results.find(val => val.id === Number(query.userId));
-    userName = findUserName.name;
+      .userAlbums.results.find(val => val.id === Number(query.albumId));
+    photoTitle = findTitle.title;
   }
 
-  return { userAlbums, userName };
+  return { userAlbums, photoTitle };
 };
 
 IndexAlbumPhotos.propTypes = {
   userAlbums: PropTypes.array.isRequired,
   router: PropTypes.object.isRequired,
-  userName: PropTypes.string.isRequired
+  photoTitle: PropTypes.string.isRequired
 };
 
 export default withRouter(IndexAlbumPhotos);
