@@ -33,10 +33,6 @@ app.prepare().then(() => {
     app.render(req, res, "/albums/[slug]/photos", req.query);
   });
 
-  server.get("/starships/:id", (req, res) => {
-    app.render(req, res, "/detail", { id: req.params.id });
-  });
-
   server.get("*", (req, res) => {
     handle(req, res);
   });

@@ -20,10 +20,11 @@ function Posts() {
   const [message, setMessage] = useState({ title: "", type: "", show: false });
   const [perPage] = useState(10);
   const [activePage, setActivePage] = useState(1);
+  const initiateActivePage = posts.results || [];
   const [activeData, setActiveData] = useState(
-    posts.results.slice(0, perPage) || []
+    initiateActivePage.slice(0, perPage) || []
   );
-  const totalData = posts.results.length;
+  const totalData = initiateActivePage.length;
   const page = totalData / perPage;
   const column = [
     {

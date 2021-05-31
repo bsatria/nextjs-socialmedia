@@ -9,9 +9,9 @@ This section should list any major frameworks that you built your project using.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This socual media app has been deployed to heroku 
+This social media app has been deployed to heroku. [click here](https://powerful-hamlet-70515.herokuapp.com/)
 
-* Heroku
+* Url Heroku
     ```sh 
     https://powerful-hamlet-70515.herokuapp.com/
     ```
@@ -25,19 +25,38 @@ This socual media app has been deployed to heroku
 
 ### Installation
 
-1. Get a free API from [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/bsatria/nextjs-socialmedia.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Running Development Mode
+3. Running Development Mode
     ```sh
     npm run dev
     ```
+
+### Unit Test with Jest and React Testing Library
+
+    ```sh
+    npm run test
+    ```
+
+
+### Build Production
+
+    ```sh
+    npm run build
+    ```
+
+### Cypress E2E
+
+    ```sh
+    npm run cypress
+    ```
+
 
 
 

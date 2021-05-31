@@ -13,6 +13,7 @@ import {
 
 function Comments() {
   const { comments, actionComment } = useSelector(state => state);
+  const dataComments = comments.results || [];
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [type, setType] = useState("add");
@@ -25,10 +26,9 @@ function Comments() {
   const [message, setMessage] = useState({ title: "", type: "", show: false });
   const [perPage] = useState(10);
   const [activePage, setActivePage] = useState(1);
-  const [activeData, setActiveData] = useState(
-    comments.results.slice(0, perPage) || []
-  );
-  const totalData = comments.results.length;
+  const initialActiveData = dataComments.slice(0, perPage) || [];
+  const [activeData, setActiveData] = useState(initialActiveData);
+  const totalData = dataComments.length;
   const page = totalData / perPage;
   const column = [
     {

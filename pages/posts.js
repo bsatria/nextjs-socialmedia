@@ -20,7 +20,7 @@ PostPage.getInitialProps = async context => {
 };
 
 PostPage.propTypes = {
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired
 };
 
 export default withRouter(PostPage);

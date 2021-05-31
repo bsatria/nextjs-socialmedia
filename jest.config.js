@@ -6,5 +6,9 @@ module.exports = {
     "<rootDir>/coverage/",
     "<rootDir>/server.js",
     "<rootDir>/jest.setup.js"
-  ]
+  ],
+  setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
+  moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+  }
 };

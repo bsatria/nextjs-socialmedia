@@ -20,7 +20,7 @@ CommentsPage.getInitialProps = async context => {
 };
 
 CommentsPage.propTypes = {
-  comments: PropTypes.array.isRequired
+  comments: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired
 };
 
 export default withRouter(CommentsPage);

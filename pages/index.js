@@ -20,7 +20,7 @@ IndexPage.getInitialProps = async context => {
 };
 
 IndexPage.propTypes = {
-  user: PropTypes.array.isRequired
+  user: PropTypes.array
 };
 
 export default withRouter(IndexPage);

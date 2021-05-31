@@ -44,8 +44,9 @@ function ModalComment({ open, setIsOpen, data, loadingComponent }) {
 ModalComment.propTypes = {
   open: PropTypes.bool.isRequired,
   setIsOpen: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
-  loadingComponent: PropTypes.array.isRequired
+  data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+  loadingComponent: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+    .isRequired
 };
 
 export default ModalComment;
