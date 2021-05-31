@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Grid } from "semantic-ui-react";
 import AlbumCard from "./AlbumCard";
 
-function UserAlbums(props) {
+function UserAlbums() {
   const userAlbums = useSelector(state => state.userAlbums);
   const dataUserAlbums = userAlbums.results || [];
 

@@ -23,6 +23,7 @@ const userListFail = error => ({
 });
 
 // component
+// eslint-disable-next-line import/prefer-default-export
 export const getUsers = () => dispatch => {
   dispatch(userListReq());
   const url = `${PUBLIC_API}/users`;
@@ -32,14 +33,4 @@ export const getUsers = () => dispatch => {
       return result;
     })
     .catch(error => dispatch(userListFail(error)));
-};
-
-export const getMovieSearch = query => dispatch => {
-  const url = `${PUBLIC_API}${query}`;
-  return fetch(url, "get")
-    .then(result => {
-      dispatch(userList(result));
-      return result;
-    })
-    .catch(error => error);
 };
