@@ -1,6 +1,5 @@
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [ReactJS](https://reactjs.org)
 * [NextJS](https://nextjs.org)
 
@@ -40,22 +39,15 @@ This social media app has been deployed to heroku. [click here](https://powerful
 
 ### Unit Test with Jest and React Testing Library
 
-    ```sh
     npm run test
-    ```
-
 
 ### Build Production
 
-    ```sh
     npm run build
-    ```
 
 ### Cypress E2E
 
-    ```sh
     npm run cypress
-    ```
 
 
 
