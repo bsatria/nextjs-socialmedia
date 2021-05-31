@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 import { Card, Image, Grid, Button } from "semantic-ui-react";
 
 const UserCard = ({ val }) => (
@@ -13,7 +14,16 @@ const UserCard = ({ val }) => (
         <Card.Description>Id : {val.id}</Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Button color="orange">See List of Photos</Button>
+        <Link
+          href={{
+            pathname: "/albums/[slug]/photos",
+            query: { userId: val.id }
+          }}
+          as={`/albums/${val.id}/photos`}
+          prefetch
+        >
+          <Button color="orange">See List of Photos</Button>
+        </Link>
       </Card.Content>
     </Card>
   </Grid.Column>

@@ -34,7 +34,7 @@ const UserCard = ({ val }) => (
             pathname: "/users/[slug]/posts",
             query: { userId: val.id }
           }}
-          as={`users/${val.id}/posts`}
+          as={`/users/${val.id}/posts`}
           prefetch
         >
           <Button color="blue">See Posts</Button>
@@ -44,7 +44,7 @@ const UserCard = ({ val }) => (
             pathname: "/users/[slug]/albums",
             query: { userId: val.id }
           }}
-          as={`users/${val.id}/albums`}
+          as={`/users/${val.id}/albums`}
           prefetch
         >
           <Button color="red">See Albums</Button>
