@@ -13,7 +13,7 @@ This socual media app has been deployed to heroku
 
 * Heroku
     ```sh 
-        https://powerful-hamlet-70515.herokuapp.com/
+    https://powerful-hamlet-70515.herokuapp.com/
     ```
 
 ### Prerequisites
@@ -57,6 +57,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Bagas Satria Nugroho - [@your_facebook](https://web.facebook.com/bagas.satria47/) - bagassatria040@gmail.com
+Bagas Satria Nugroho - [@Bagas Satria](https://web.facebook.com/bagas.satria47/) - bagassatria040@gmail.com
 
 Project Link: [https://github.com/bsatria/nextjs-socialmedia.git](https://github.com/bsatria/nextjs-socialmedia.git)
