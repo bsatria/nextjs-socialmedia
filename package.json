@@ -6,9 +6,9 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint \"./commons/**\"",
-    "dev": "node server.js",
+    "dev": "node server.js -p $PORT",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "NODE_ENV=production node server.js -p $PORT",
     "cypress": "./node_modules/.bin/cypress open",
     "prod": "npm-run-all build start"
   },
