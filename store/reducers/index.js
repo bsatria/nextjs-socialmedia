@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
 import { user, userDetail } from "./users";
-import { posts } from "./posts";
+import { posts, actionPost } from "./posts";
 import { userPosts, detailComments } from "./userPosts";
 import { userAlbums } from "./albums";
 import { albumPhotos } from "./albumPhotos";
@@ -13,5 +13,6 @@ export default combineReducers({
   userPosts,
   detailComments,
   userAlbums,
-  albumPhotos
+  albumPhotos,
+  actionPost
 });

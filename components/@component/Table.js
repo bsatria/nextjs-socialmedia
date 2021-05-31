@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
-import { Table } from "semantic-ui-react";
+import { Table, Button, Icon } from "semantic-ui-react";
 import PropTypes from "prop-types";
 
 const TableComponent = props => {
-  const { column, data } = props;
+  const { column, data, onDeleteRow, onEditRow } = props;
   return (
     <Table basic>
       <Table.Header>
@@ -13,6 +13,7 @@ const TableComponent = props => {
               <Table.HeaderCell>{val.id}</Table.HeaderCell>
               <Table.HeaderCell>{val.title}</Table.HeaderCell>
               <Table.HeaderCell>{val.body}</Table.HeaderCell>
+              <Table.HeaderCell>{val.action}</Table.HeaderCell>
             </Fragment>
           ))}
         </Table.Row>
@@ -20,10 +21,18 @@ const TableComponent = props => {
 
       <Table.Body>
         {data.map(val => (
-          <Table.Row key={val.key}>
+          <Table.Row key={val.id}>
             <Table.Cell>{val.id}</Table.Cell>
             <Table.Cell>{val.title}</Table.Cell>
             <Table.Cell>{val.body}</Table.Cell>
+            <Table.Cell>
+              <Button color="green" icon onClick={() => onEditRow(val)}>
+                <Icon name="edit" />
+              </Button>
+              <Button color="red" icon onClick={() => onDeleteRow(val)}>
+                <Icon name="delete" />
+              </Button>
+            </Table.Cell>
           </Table.Row>
         ))}
       </Table.Body>
@@ -33,7 +42,9 @@ const TableComponent = props => {
 
 TableComponent.propTypes = {
   column: PropTypes.array,
-  data: PropTypes.array
+  data: PropTypes.array,
+  onEditRow: PropTypes.func,
+  onDeleteRow: PropTypes.func
 };
 
 export default TableComponent;

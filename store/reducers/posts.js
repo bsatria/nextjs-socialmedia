@@ -17,3 +17,20 @@ export const posts = (state = [], action) => {
       return state;
   }
 };
+
+export const actionPost = (state = [], action) => {
+  switch (action.type) {
+    case actionTypes.ACTION_POSTS:
+      return { ...state, loading: false, ...action.payload };
+    case actionTypes.ACTION_POSTS_REQUEST:
+      return { ...state, loading: true };
+    case actionTypes.ACTION_POSTS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        errorMessage: action.payload.message
+      };
+    default:
+      return state;
+  }
+};

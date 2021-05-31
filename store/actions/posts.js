@@ -22,8 +22,25 @@ const postListFail = error => ({
   error: true
 });
 
+const createPost = data => ({
+  type: actionTypes.ACTION_POSTS,
+  payload: {
+    results: data,
+    loading: false
+  }
+});
+
+const createPostReq = () => ({
+  type: actionTypes.ACTION_POSTS_REQUEST
+});
+
+const createPostFail = error => ({
+  type: actionTypes.ACTION_POSTS_FAILURE,
+  payload: error,
+  error: true
+});
+
 // component
-// eslint-disable-next-line import/prefer-default-export
 export const getPosts = () => dispatch => {
   dispatch(postListReq());
   const url = `${PUBLIC_API}/posts`;
@@ -33,4 +50,37 @@ export const getPosts = () => dispatch => {
       return result;
     })
     .catch(error => dispatch(postListFail(error)));
+};
+
+export const onCreatePost = payload => dispatch => {
+  dispatch(createPostReq());
+  const url = `${PUBLIC_API}/posts`;
+  return fetch(url, "post", payload)
+    .then(result => {
+      dispatch(createPost(result));
+      return result;
+    })
+    .catch(error => dispatch(createPostFail(error)));
+};
+
+export const onUpdatePost = payload => dispatch => {
+  dispatch(createPostReq());
+  const url = `${PUBLIC_API}/posts/${payload.id}`;
+  return fetch(url, "put", payload)
+    .then(result => {
+      dispatch(createPost(result));
+      return result;
+    })
+    .catch(error => dispatch(createPostFail(error)));
+};
+
+export const onDeletePost = payload => dispatch => {
+  dispatch(createPostReq());
+  const url = `${PUBLIC_API}/posts/${payload.id}`;
+  return fetch(url, "delete")
+    .then(result => {
+      dispatch(createPost(result));
+      return result;
+    })
+    .catch(error => dispatch(createPostFail(error)));
 };
