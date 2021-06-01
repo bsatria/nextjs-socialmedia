@@ -5,6 +5,7 @@ module.exports = {
     "<rootDir>/lib/",
     "<rootDir>/coverage/",
     "<rootDir>/server.js",
+    "<rootDir>/cypress",
     "<rootDir>/jest.setup.js"
   ],
   setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
